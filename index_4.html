@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jewel Sikder Joy — PhD Researcher</title>
+<meta name="description" content="Jewel Sikder Joy — PhD student in Electrical & Computer Engineering at Prairie View A&M University. Energy optimization, power systems, microgrids & smart grids.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7FAFC;
+  --bg-soft:#EEF3F7;
+  --panel:#FFFFFF;
+  --panel-solid:#FFFFFF;
+  --border:#E1E8EF;
+  --border-hi:#67C6DC;
+  --text:#152436;
+  --muted:#5B6B7F;
+  --cyan:#0891B2;
+  --lime:#5C9E0B;
+  --grad:linear-gradient(92deg,#0891B2 0%,#5C9E0B 100%);
+  --grad-soft:linear-gradient(92deg,rgba(8,145,178,.12),rgba(92,158,11,.12));
+  --disp:'Sora',sans-serif;
+  --body:'Inter',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--text);line-height:1.65;font-size:16px;
+  background:
+    linear-gradient(160deg,#E5F6FA 0%,#F2FAF4 38%,#F7FAFC 62%,#EDF7EE 100%);
+  background-attachment:fixed}
+::selection{background:rgba(8,145,178,.18)}
+a{color:var(--cyan);text-decoration:none;transition:color .15s}
+a:hover{color:var(--lime)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ambient glow */
+.glow{position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(640px 420px at 85% -8%, rgba(8,145,178,.16), transparent 62%),
+   radial-gradient(560px 430px at 4% 18%, rgba(122,190,45,.13), transparent 62%),
+   radial-gradient(700px 520px at 55% 108%, rgba(8,145,178,.10), transparent 65%),
+   radial-gradient(rgba(21,36,54,.05) 1px, transparent 1px);
+  background-size:auto,auto,auto,26px 26px;
+}
+
+/* ---------- nav ---------- */
+nav{position:sticky;top:0;z-index:50;background:rgba(240,249,250,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-family:var(--disp);font-weight:800;font-size:1.02rem;letter-spacing:.01em;color:var(--text)}
+.brand em{font-style:normal;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
+.nav-links a{font-family:var(--mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nav-links a:hover{color:var(--text)}
+.nav-cv{border:1px solid var(--border);padding:7px 15px;border-radius:999px;color:var(--text)!important}
+.nav-cv:hover{border-color:var(--border-hi);color:var(--cyan)!important}
+.menu-btn{display:none;background:none;border:1px solid var(--border);border-radius:8px;padding:7px 12px;font-family:var(--mono);font-size:.72rem;color:var(--text);cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{display:grid;grid-template-columns:1fr 320px;gap:56px;align-items:center;padding:96px 0 104px}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:36px;height:1px;background:var(--grad)}
+h1{font-family:var(--disp);font-weight:800;font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1.04;letter-spacing:-.02em}
+h1 .grad-text{display:inline-block}
+.hero-sub{margin-top:22px;font-size:1.14rem;color:var(--muted);max-width:33em}
+.hero-sub strong{color:var(--text);font-weight:600}
+.hero-links{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;padding:11px 20px;border-radius:999px;border:1px solid var(--border);color:var(--text);display:inline-flex;align-items:center;gap:8px;transition:all .15s}
+.btn:hover{border-color:var(--border-hi);transform:translateY(-1px);color:var(--cyan)}
+.btn.primary{background:var(--grad);border:none;color:#fff;font-weight:500;box-shadow:0 2px 10px rgba(8,145,178,.25)}
+.btn.primary:hover{filter:brightness(1.06);color:#fff}
+.portrait{position:relative}
+.portrait::before{content:"";position:absolute;inset:-14px;border-radius:24px;background:var(--grad);opacity:.20;filter:blur(28px)}
+.portrait img{position:relative;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:20px;border:1px solid var(--border);display:block}
+.portrait .tag{position:absolute;bottom:-14px;left:18px;background:var(--grad);color:#fff;font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;padding:6px 13px;border-radius:999px;font-weight:500;box-shadow:0 2px 8px rgba(8,145,178,.3)}
+
+/* ---------- sections ---------- */
+section{padding:84px 0;border-top:1px solid var(--border)}
+.sec-head{margin-bottom:44px}
+.sec-tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--lime);display:block;margin-bottom:10px}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,3.4vw,2.25rem);letter-spacing:-.015em}
+h2 .grad-text{padding-right:2px}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ---------- about ---------- */
+.about-grid{max-width:52em}
+.about-grid p{color:var(--muted);margin-bottom:18px;font-size:1.03rem}
+.about-grid p strong{color:var(--text)}
+.card{background:rgba(255,255,255,.86);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:0 1px 3px rgba(21,36,54,.05)}
+.card h3{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+.card ul{list-style:none}
+.card li{padding:10px 0;border-bottom:1px solid var(--border);font-size:.96rem;display:flex;gap:12px;align-items:baseline;color:var(--text)}
+.card li:last-child{border-bottom:none}
+.card li::before{content:"◆";font-size:.55rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* ---------- what's new ---------- */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.news{background:rgba(255,255,255,.86);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:border-color .2s,transform .2s;display:flex;flex-direction:column}
+.news:hover{border-color:var(--border-hi);transform:translateY(-3px);box-shadow:0 8px 24px rgba(21,36,54,.08)}
+.news img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;border-bottom:1px solid var(--border)}
+.news .body{padding:20px 22px 24px}
+.news .date{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--lime);text-transform:uppercase}
+.news h3{font-family:var(--disp);font-weight:600;font-size:1.05rem;margin:8px 0 8px;line-height:1.4}
+.news p{color:var(--muted);font-size:.92rem}
+.news-empty{color:var(--muted);font-family:var(--mono);font-size:.85rem}
+
+/* ---------- timeline ---------- */
+.timeline{position:relative;margin-left:8px}
+.timeline::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#0891B2,#5C9E0B);opacity:.5;border-radius:2px}
+.t-item{position:relative;padding:0 0 46px 40px}
+.t-item:last-child{padding-bottom:0}
+.t-item::before{content:"";position:absolute;left:-6px;top:8px;width:14px;height:14px;border-radius:50%;background:#fff;border:2.5px solid var(--cyan);box-shadow:0 0 0 4px rgba(8,145,178,.12)}
+.t-item.current::before{background:var(--lime);border-color:var(--lime);box-shadow:0 0 0 4px rgba(92,158,11,.15)}
+.t-date{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:#fff;background:var(--grad);display:inline-block;padding:4px 12px;border-radius:999px;margin-bottom:12px;font-weight:500}
+.t-item h3{font-family:var(--disp);font-weight:700;font-size:1.28rem;margin-bottom:3px}
+.t-inst{font-family:var(--mono);font-size:.78rem;color:var(--cyan);margin-bottom:10px}
+.t-item p{color:var(--muted);font-size:.97rem;max-width:47em}
+.t-item .gpa{font-weight:600;color:var(--text)}
+
+/* ---------- experience ---------- */
+.exp-list{display:grid;gap:18px}
+.exp{background:rgba(255,255,255,.86);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:16px;padding:26px 30px;display:grid;grid-template-columns:1fr auto;gap:6px 24px;transition:border-color .2s}
+.exp:hover{border-color:var(--border-hi)}
+.exp h3{font-family:var(--disp);font-weight:600;font-size:1.12rem}
+.exp .org{font-family:var(--mono);font-size:.77rem;color:var(--cyan)}
+.exp .when{font-family:var(--mono);font-size:.73rem;color:var(--muted);text-align:right;white-space:nowrap;padding-top:4px}
+.exp ul{grid-column:1/-1;list-style:none;margin-top:10px}
+.exp li{padding:5px 0 5px 20px;position:relative;color:var(--muted);font-size:.95rem}
+.exp li::before{content:"→";position:absolute;left:0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.exp li strong{color:var(--text)}
+
+/* ---------- publications ---------- */
+.pub-group{margin-bottom:44px}
+.pub-group:last-child{margin-bottom:0}
+.pub-group>h3{font-family:var(--disp);font-weight:700;font-size:1.2rem;margin-bottom:20px;display:flex;align-items:center;gap:14px}
+.pub-group>h3 .n{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;background:var(--grad);color:#fff;border-radius:999px;padding:3px 11px;font-weight:500}
+.pub{background:rgba(255,255,255,.86);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:16px;padding:24px 28px;margin-bottom:14px;transition:border-color .2s}
+.pub:hover{border-color:var(--border-hi)}
+.pub .venue{font-family:var(--mono);font-size:.73rem;color:var(--lime);margin-bottom:6px;letter-spacing:.04em}
+.pub h4{font-family:var(--disp);font-size:1.04rem;font-weight:600;line-height:1.45;margin-bottom:8px}
+.pub .authors{font-size:.89rem;color:var(--muted)}
+.pub .authors b{color:var(--text);font-weight:600}
+.pub a.doi{font-family:var(--mono);font-size:.74rem;display:inline-block;margin-top:8px}
+.pub.review{border-style:dashed}
+.pub.review .venue{color:var(--muted)}
+
+/* ---------- skills ---------- */
+.skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{font-family:var(--mono);font-size:.75rem;background:var(--bg-soft);border:1px solid var(--border);padding:6px 13px;border-radius:999px;color:var(--text);transition:border-color .15s}
+.chip:hover{border-color:var(--border-hi)}
+
+/* ---------- contact / footer ---------- */
+.contact{border-bottom:none}
+.contact-box{position:relative;overflow:hidden;background:var(--panel-solid);border:1px solid var(--border);border-radius:20px;padding:52px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;box-shadow:0 2px 12px rgba(21,36,54,.06)}
+.contact-box::before{content:"";position:absolute;top:-70px;right:-70px;width:260px;height:260px;background:var(--grad);opacity:.12;filter:blur(48px);border-radius:50%}
+.contact-box h2{margin-bottom:10px}
+.contact-box p{color:var(--muted);max-width:33em}
+footer{padding:30px 0 40px;color:var(--muted);font-family:var(--mono);font-size:.72rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid var(--border)}
+footer a{color:var(--muted)}
+footer a:hover{color:var(--cyan)}
+
+/* ---------- responsive ---------- */
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;padding:60px 0 88px;gap:44px}
+  .portrait{max-width:250px}
+  .exp{grid-template-columns:1fr}
+  .exp .when{text-align:left;padding-top:0}
+  .contact-box{grid-template-columns:1fr;padding:36px}
+  .nav-links{position:absolute;top:64px;left:0;right:0;background:#F0F9FA;border-bottom:1px solid var(--border);box-shadow:0 8px 16px rgba(21,36,54,.06);flex-direction:column;gap:0;padding:8px 24px 18px;display:none;align-items:flex-start}
+  .nav-links.open{display:flex}
+  .nav-links li{padding:10px 0}
+  .menu-btn{display:block}
+}
+</style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand">Jewel Sikder <em>Joy</em></div>
+    <button class="menu-btn" aria-expanded="false" aria-controls="navlinks" onclick="toggleMenu(this)">MENU</button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#news">What's New</a></li>
+      <li><a href="#journey">Journey</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a class="nav-cv" href="files/CV_Jewel_Sikder_Joy.pdf" target="_blank" rel="noopener">Download CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">PhD Researcher · Power &amp; Energy Systems</div>
+      <h1>Engineering the grid of tomorrow.<br><span class="grad-text">I'm Jewel Sikder Joy.</span></h1>
+      <p class="hero-sub">PhD student in <strong>Electrical &amp; Computer Engineering</strong> at Prairie View A&amp;M University — researching <strong>energy optimization, power system dynamics, and smart grids</strong>, backed by six years of hands-on infrastructure engineering.</p>
+      <div class="hero-links">
+        <a class="btn primary" href="mailto:jewelsikderjoy4@gmail.com">Get in touch</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href="https://github.com/jewsikjoy" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="profile.png" alt="Portrait of Jewel Sikder Joy">
+      <span class="tag">PVAMU · ECE</span>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-tag">01 — About</span><h2>From substations to <span class="grad-text">smart grids</span></h2></div>
+    <div class="about-grid">
+      <div>
+        <p>I am a PhD student in the Department of Electrical and Computer Engineering at <strong>Prairie View A&amp;M University</strong>, Texas. My research develops optimization methods for modern power systems — from optimal power flow under uncertainty to the control and management of microgrids with high renewable penetration.</p>
+        <p>Before my doctoral studies, I earned an <strong>M.Sc. in Energy Technology</strong> from Chittagong University of Engineering and Technology, where my thesis designed a hybrid renewable energy management system using artificial-intelligence techniques, and a <strong>B.Sc. in Electrical &amp; Electronic Engineering</strong> from International Islamic University Chittagong.</p>
+        <p>Between my degrees, I spent six years in industry — commissioning water-treatment plants, planning electrical and mechanical systems for a metro rail station, and co-founding a control-panel design firm. That experience keeps my research grounded in how real infrastructure is built and operated.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-tag">02 — What's New</span><h2>Latest <span class="grad-text">updates</span></h2></div>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<section id="journey">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-tag">03 — Journey</span><h2>Academic <span class="grad-text">journey</span></h2></div>
+    <div class="timeline">
+      <div class="t-item current">
+        <span class="t-date">2025 — PRESENT</span>
+        <h3>Ph.D. in Electrical &amp; Computer Engineering</h3>
+        <div class="t-inst">Prairie View A&amp;M University · Texas, USA</div>
+        <p>Research focus: energy optimization, frequency-secure optimal power flow, and decomposition methods for large-scale power systems.</p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">2020</span>
+        <h3>M.Sc. in Energy Technology</h3>
+        <div class="t-inst">Chittagong University of Engineering and Technology · Bangladesh</div>
+        <p><span class="gpa">CGPA 3.21 / 4.00.</span> Thesis: <em>Design and Analysis of a Hybrid Renewable Energy Management System using Artificial Intelligent Techniques.</em></p>
+      </div>
+      <div class="t-item">
+        <span class="t-date">2015</span>
+        <h3>B.Sc. in Electrical &amp; Electronic Engineering</h3>
+        <div class="t-inst">International Islamic University Chittagong · Bangladesh</div>
+        <p><span class="gpa">CGPA 3.32 / 4.00</span> (last four semesters 3.60). Capstone: a controller-based buck–boost converter for a small wind turbine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-tag">04 — Experience</span><h2>Professional <span class="grad-text">experience</span></h2></div>
+    <div class="exp-list">
+      <article class="exp">
+        <div><h3>Electrical Engineer (WTP &amp; STP)</h3><div class="org">Taeyoung E&amp;C · Bangladesh Branch Office</div></div>
+        <div class="when">Oct 2021 — 2024</div>
+        <ul>
+          <li>Reviewed electrical &amp; instrumentation design of a <strong>100 MLD sewerage treatment plant</strong> for the Government of Bangladesh.</li>
+          <li>Supervised installation, testing, and commissioning of a <strong>60 MLD water treatment plant</strong>.</li>
+        </ul>
+      </article>
+      <article class="exp">
+        <div><h3>Director &amp; Co-Founder</h3><div class="org">Analytical Industrial Solution · Chattogram, Bangladesh</div></div>
+        <div class="when">Jul 2022 — Present</div>
+        <ul>
+          <li>Led design of industrial <strong>control panels</strong> and directed product research.</li>
+        </ul>
+      </article>
+      <article class="exp">
+        <div><h3>Project Engineer (MEP)</h3><div class="org">Cross World Power Ltd. · Dhaka, Bangladesh</div></div>
+        <div class="when">Dec 2019 — Sep 2021</div>
+        <ul>
+          <li>Performed design analysis and installation planning of electrical and mechanical works for a <strong>metro rail station</strong>.</li>
+          <li>Prepared technical specifications and method statements for electrical, mechanical, and <strong>energy storage systems</strong>.</li>
+        </ul>
+      </article>
+      <article class="exp">
+        <div><h3>Assistant Engineer (E&amp;I)</h3><div class="org">Hyosung Heavy Industries Corporation · Bangladesh Branch</div></div>
+        <div class="when">Jul 2017 — Jul 2019</div>
+        <ul>
+          <li>Tested and commissioned electrical, instrumentation, and <strong>SCADA</strong> systems for a 90 MLD water treatment plant.</li>
+        </ul>
+      </article>
+      <article class="exp">
+        <div><h3>Teaching &amp; Outreach</h3><div class="org">Progressive Coaching Home · IEEE Student Branch, HSTU</div></div>
+        <div class="when">2015 — 2022</div>
+        <ul>
+          <li>Lecturer for Physics, Circuit I &amp; II, and ICT (2015–2017).</li>
+          <li>Instructor, workshop on <strong>MATLAB Simulink</strong>, IEEE Student Branch, HSTU (2022).</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-tag">05 — Publications</span><h2>Research <span class="grad-text">publications</span></h2></div>
+
+    <div class="pub-group">
+      <h3>Conference Publications <span class="n">IN PROGRESS</span></h3>
+      <article class="pub review">
+        <div class="venue">Under review</div>
+        <h4>Conference submissions currently under peer review — details will appear here once decisions are announced.</h4>
+      </article>
+    </div>
+
+    <div class="pub-group">
+      <h3>Journal Publications <span class="n">2</span></h3>
+      <article class="pub">
+        <div class="venue">International Journal of Mechanical Engineering and Robotics Research · Vol. 10, No. 3 · 2021</div>
+        <h4>An Innovative Method to Hybrid Renewable Energy Controlling Strategy Using Artificial Techniques</h4>
+        <p class="authors"><b>Jewel Sikder Joy</b>, Nesar Uddin, Md Saiful Islam, Md. Tazul Islam</p>
+        <a class="doi" href="https://doi.org/10.18178/ijmerr.10.3.137-150" target="_blank" rel="noopener">DOI: 10.18178/ijmerr.10.3.137-150</a>
+      </article>
+      <article class="pub">
+        <div class="venue">Solid State Technology · Vol. 63, Issue 3 · 2020</div>
+        <h4>Multi-Objective Spotted Hyena Optimizer for 3D Well Path Optimization</h4>
+        <p class="authors">Kallol Biswas, Touhidul Islam, <b>Jewel Sikder Joy</b>, Pandian Vasant, Jose Antonio Gamez Vintaned, Junzo Watada</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-tag">06 — Skills</span><h2>Technical <span class="grad-text">skills</span></h2></div>
+    <div class="skill-grid">
+      <div class="card">
+        <h3>Simulation &amp; Design</h3>
+        <div class="chips"><span class="chip">MATLAB / Simulink</span><span class="chip">LabVIEW</span><span class="chip">Proteus</span><span class="chip">AutoCAD</span></div>
+      </div>
+      <div class="card">
+        <h3>Programming</h3>
+        <div class="chips"><span class="chip">Python</span><span class="chip">C</span><span class="chip">MS Office</span></div>
+      </div>
+      <div class="card">
+        <h3>Domain</h3>
+        <div class="chips"><span class="chip">Optimal Power Flow</span><span class="chip">Microgrids</span><span class="chip">SCADA</span><span class="chip">Converters</span><span class="chip">Energy Storage</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <div class="contact-box">
+      <div>
+        <h2>Let's <span class="grad-text">connect</span></h2>
+        <p>Open to research collaboration in power systems optimization, microgrids, and energy management — and always happy to talk with fellow researchers and industry partners.</p>
+      </div>
+      <a class="btn primary" href="mailto:jewelsikderjoy4@gmail.com">jewelsikderjoy4@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 Jewel Sikder Joy · Prairie View, TX</span>
+  <span><a href="https://scholar.google.com/citations?user=PS_CX0AAAAAJ" target="_blank" rel="noopener">Scholar</a> · <a href="https://github.com/jewsikjoy" target="_blank" rel="noopener">GitHub</a> · <a href="mailto:jewelsikderjoy4@gmail.com">Email</a> · <a href="admin.html" title="Site dashboard">✎ Dashboard</a></span>
+</footer>
+
+<script>
+/* mobile menu */
+function toggleMenu(btn){
+  const links=document.getElementById('navlinks');
+  const open=links.classList.toggle('open');
+  btn.setAttribute('aria-expanded',open);
+}
+document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>{
+  document.getElementById('navlinks').classList.remove('open');
+}));
+
+/* scroll reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ---- What's New: loads updates.json (published from the dashboard) ---- */
+const FALLBACK_UPDATES=[
+  {date:"2026-07-10",title:"Website launched",text:"My new personal research portfolio is live. Updates on papers, projects, and milestones will appear here."}
+];
+function esc(s){const d=document.createElement('div');d.textContent=s??'';return d.innerHTML}
+function renderUpdates(list){
+  const grid=document.getElementById('newsGrid');
+  if(!list||!list.length){grid.innerHTML='<p class="news-empty">// No updates yet — check back soon.</p>';return}
+  list.sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  grid.innerHTML=list.map(u=>`
+    <article class="news">
+      ${u.image?`<img src="${esc(u.image)}" alt="" loading="lazy">`:''}
+      <div class="body">
+        <span class="date">${esc(u.date)}</span>
+        <h3>${esc(u.title)}</h3>
+        <p>${esc(u.text)}</p>
+      </div>
+    </article>`).join('');
+}
+fetch('updates.json',{cache:'no-store'})
+  .then(r=>r.ok?r.json():Promise.reject())
+  .then(renderUpdates)
+  .catch(()=>renderUpdates(FALLBACK_UPDATES));
+</script>
+</body>
+</html>

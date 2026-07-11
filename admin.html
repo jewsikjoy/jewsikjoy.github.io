@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Jewel Sikder Joy</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F7FAFC;--panel:#FFFFFF;--panel-solid:#FFFFFF;
+  --border:#E1E8EF;--border-hi:#67C6DC;
+  --text:#152436;--muted:#5B6B7F;--cyan:#0891B2;--lime:#5C9E0B;
+  --grad:linear-gradient(92deg,#0891B2 0%,#5C9E0B 100%);
+  --disp:'Sora',sans-serif;--body:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--body);color:var(--text);line-height:1.6;font-size:15.5px;min-height:100vh;
+  background:
+    radial-gradient(640px 420px at 85% -8%, rgba(8,145,178,.16), transparent 62%),
+    radial-gradient(560px 430px at 4% 18%, rgba(122,190,45,.13), transparent 62%),
+    linear-gradient(160deg,#E5F6FA 0%,#F2FAF4 38%,#F7FAFC 62%,#EDF7EE 100%);
+  background-attachment:fixed}
+.wrap{max-width:860px;margin:0 auto;padding:40px 24px 80px}
+a{color:var(--cyan);text-decoration:none}
+a:hover{color:var(--lime)}
+h1{font-family:var(--disp);font-weight:800;font-size:1.9rem;letter-spacing:-.01em;margin-bottom:6px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--muted);margin-bottom:34px;font-size:.95rem}
+.card{background:rgba(255,255,255,.88);backdrop-filter:blur(6px);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:22px;box-shadow:0 1px 3px rgba(21,36,54,.05)}
+.card h2{font-family:var(--mono);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:18px}
+label{display:block;font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
+label:first-of-type{margin-top:0}
+input[type=text],input[type=date],input[type=password],textarea{
+  width:100%;background:#FBFDFE;border:1px solid var(--border);border-radius:10px;
+  padding:11px 14px;color:var(--text);font-family:var(--body);font-size:.95rem;transition:border-color .15s}
+textarea{min-height:96px;resize:vertical}
+input:focus,textarea:focus{outline:none;border-color:var(--border-hi)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.hint{font-size:.8rem;color:var(--muted);margin-top:6px}
+.btn{font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;padding:11px 22px;border-radius:999px;
+  border:1px solid var(--border);color:var(--text);background:none;cursor:pointer;transition:all .15s}
+.btn:hover{border-color:var(--border-hi);color:var(--cyan)}
+.btn.primary{background:var(--grad);border:none;color:#fff;font-weight:600;box-shadow:0 2px 10px rgba(8,145,178,.25)}
+.btn.primary:hover{filter:brightness(1.06);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.danger:hover{border-color:#DC2626;color:#DC2626}
+.actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.drop{border:1.5px dashed var(--border);border-radius:12px;padding:22px;text-align:center;color:var(--muted);cursor:pointer;transition:border-color .15s;font-size:.9rem}
+.drop:hover,.drop.over{border-color:var(--border-hi);color:var(--text)}
+.drop img{max-width:100%;max-height:220px;border-radius:8px;margin-top:12px}
+#status{font-family:var(--mono);font-size:.8rem;margin-top:16px;white-space:pre-wrap}
+#status.ok{color:var(--lime)}
+#status.err{color:#DC2626}
+.news-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border-bottom:none}
+.news-item img{width:70px;height:48px;object-fit:cover;border-radius:6px;border:1px solid var(--border)}
+.news-item .meta{flex:1}
+.news-item .d{font-family:var(--mono);font-size:.68rem;color:var(--lime)}
+.news-item .t{font-weight:600;font-size:.93rem}
+.news-item .x{font-size:.82rem;color:var(--muted)}
+details{margin-top:14px}
+summary{cursor:pointer;font-family:var(--mono);font-size:.75rem;color:var(--muted)}
+pre{background:#F0F4F8;border:1px solid var(--border);border-radius:10px;padding:14px;font-family:var(--mono);font-size:.74rem;overflow:auto;margin-top:10px;max-height:260px}
+.pill{display:inline-block;font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;border:1px solid var(--border);border-radius:999px;padding:3px 10px;color:var(--muted);margin-left:8px;vertical-align:middle}
+.pill.on{border-color:var(--lime);color:var(--lime)}
+@media(max-width:640px){.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Site <span class="grad-text">Dashboard</span></h1>
+  <p class="sub">Post updates and pictures to the <b>What's New</b> section of your website. Changes are committed straight to your GitHub repository — the site rebuilds automatically in about a minute. <a href="index.html">← Back to site</a></p>
+
+  <!-- CONNECTION -->
+  <div class="card">
+    <h2>1 · Connect to GitHub <span class="pill" id="connPill">NOT CONNECTED</span></h2>
+    <div class="row">
+      <div>
+        <label for="owner">Repository owner</label>
+        <input type="text" id="owner" value="jewsikjoy">
+      </div>
+      <div>
+        <label for="repo">Repository name</label>
+        <input type="text" id="repo" value="jewsikjoy.github.io">
+      </div>
+    </div>
+    <label for="token">Personal access token</label>
+    <input type="password" id="token" placeholder="github_pat_…" autocomplete="off">
+    <p class="hint">Create one at GitHub → Settings → Developer settings → <b>Fine-grained tokens</b>. Give it access to <b>only this repository</b> with <b>Contents: Read and write</b> permission. The token stays in this browser tab only — it is never saved to the site or the repo. Don't share it with anyone.</p>
+    <div class="actions">
+      <button class="btn primary" onclick="connect()">Connect &amp; load updates</button>
+    </div>
+  </div>
+
+  <!-- COMPOSER -->
+  <div class="card">
+    <h2>2 · New update</h2>
+    <div class="row">
+      <div>
+        <label for="uDate">Date</label>
+        <input type="date" id="uDate">
+      </div>
+      <div>
+        <label for="uTitle">Title</label>
+        <input type="text" id="uTitle" placeholder="e.g. Paper accepted at IEEE NAPS 2026">
+      </div>
+    </div>
+    <label for="uText">Description</label>
+    <textarea id="uText" placeholder="One or two sentences about the update…"></textarea>
+    <label>Picture (optional)</label>
+    <div class="drop" id="drop" onclick="document.getElementById('uImg').click()">
+      Click to choose a picture, or drag &amp; drop it here<br>
+      <span class="hint">It will be resized and compressed automatically.</span>
+      <img id="preview" style="display:none" alt="">
+    </div>
+    <input type="file" id="uImg" accept="image/*" style="display:none">
+    <div class="actions">
+      <button class="btn primary" id="publishBtn" onclick="publish()">Publish to website</button>
+      <button class="btn" onclick="clearForm()">Clear</button>
+    </div>
+    <div id="status"></div>
+    <details>
+      <summary>No token? Manual option</summary>
+      <p class="hint" style="margin-top:10px">Fill the form, click below, then: (1) copy the JSON and paste it into <b>updates.json</b> in your repo (create the file at the repo root if it doesn't exist), and (2) if you added a picture, download it and upload it to the <b>images/</b> folder in your repo without renaming it.</p>
+      <div class="actions">
+        <button class="btn" onclick="manualJSON()">Generate JSON</button>
+        <button class="btn" id="dlImgBtn" onclick="downloadImage()" disabled>Download picture</button>
+      </div>
+      <pre id="manualOut" style="display:none"></pre>
+    </details>
+  </div>
+
+  <!-- EXISTING -->
+  <div class="card">
+    <h2>3 · Published updates</h2>
+    <div id="list"><p class="hint">Connect above to load and manage your published updates.</p></div>
+  </div>
+</div>
+
+<script>
+const API='https://api.github.com';
+let token='',owner='',repo='';
+let updates=[];           // current updates.json content
+let updatesSha=null;      // sha needed to overwrite the file
+let imgBlob=null,imgName='';
+
+document.getElementById('uDate').valueAsDate=new Date();
+
+/* ---------- image handling: preview + compress ---------- */
+const drop=document.getElementById('drop'),fileInput=document.getElementById('uImg');
+fileInput.addEventListener('change',e=>{if(e.target.files[0])loadImage(e.target.files[0])});
+['dragover','dragleave','drop'].forEach(ev=>drop.addEventListener(ev,e=>{
+  e.preventDefault();
+  drop.classList.toggle('over',ev==='dragover');
+  if(ev==='drop'&&e.dataTransfer.files[0])loadImage(e.dataTransfer.files[0]);
+}));
+function loadImage(file){
+  const img=new Image();
+  img.onload=()=>{
+    const MAX=1200,scale=Math.min(1,MAX/Math.max(img.width,img.height));
+    const c=document.createElement('canvas');
+    c.width=Math.round(img.width*scale);c.height=Math.round(img.height*scale);
+    c.getContext('2d').drawImage(img,0,0,c.width,c.height);
+    c.toBlob(b=>{
+      imgBlob=b;
+      const slug=(document.getElementById('uTitle').value||'update').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,40)||'update';
+      imgName=`images/${document.getElementById('uDate').value||'undated'}-${slug}.jpg`;
+      const p=document.getElementById('preview');
+      p.src=URL.createObjectURL(b);p.style.display='block';
+      document.getElementById('dlImgBtn').disabled=false;
+    },'image/jpeg',.85);
+  };
+  img.src=URL.createObjectURL(file);
+}
+
+/* ---------- GitHub API helpers ---------- */
+function hdrs(){return{'Authorization':'Bearer '+token,'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'}}
+async function ghGet(path){
+  const r=await fetch(`${API}/repos/${owner}/${repo}/contents/${path}`,{headers:hdrs()});
+  if(r.status===404)return null;
+  if(!r.ok)throw new Error(`GitHub error ${r.status} reading ${path}`);
+  return r.json();
+}
+async function ghPut(path,base64,message,sha){
+  const body={message,content:base64};
+  if(sha)body.sha=sha;
+  const r=await fetch(`${API}/repos/${owner}/${repo}/contents/${path}`,{method:'PUT',headers:hdrs(),body:JSON.stringify(body)});
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(`GitHub error ${r.status} writing ${path}: ${e.message||''}`)}
+  return r.json();
+}
+function b64EncodeText(str){return btoa(unescape(encodeURIComponent(str)))}
+function b64DecodeText(b64){return decodeURIComponent(escape(atob(b64.replace(/\n/g,''))))}
+function blobToBase64(blob){return new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(blob)})}
+
+/* ---------- connect & load ---------- */
+async function connect(){
+  token=document.getElementById('token').value.trim();
+  owner=document.getElementById('owner').value.trim();
+  repo=document.getElementById('repo').value.trim();
+  const s=setStatus('Connecting…');
+  if(!token||!owner||!repo)return setStatus('Please fill owner, repository, and token.','err');
+  try{
+    const f=await ghGet('updates.json');
+    if(f){updates=JSON.parse(b64DecodeText(f.content));updatesSha=f.sha}
+    else{updates=[];updatesSha=null}
+    document.getElementById('connPill').textContent='CONNECTED';
+    document.getElementById('connPill').classList.add('on');
+    renderList();
+    setStatus(`Connected. ${updates.length} update(s) loaded.`,'ok');
+  }catch(e){setStatus(e.message+'\nCheck the token permissions (Contents: Read and write) and repo name.','err')}
+}
+
+/* ---------- publish ---------- */
+async function publish(){
+  if(!token)return setStatus('Connect to GitHub first (step 1), or use the manual option below.','err');
+  const date=document.getElementById('uDate').value,
+        title=document.getElementById('uTitle').value.trim(),
+        text=document.getElementById('uText').value.trim();
+  if(!date||!title)return setStatus('Date and title are required.','err');
+  const btn=document.getElementById('publishBtn');btn.disabled=true;
+  try{
+    const entry={date,title,text};
+    if(imgBlob){
+      setStatus('Uploading picture…');
+      const b64=await blobToBase64(imgBlob);
+      const existing=await ghGet(imgName);
+      await ghPut(imgName,b64,`Add image: ${imgName}`,existing?existing.sha:undefined);
+      entry.image=imgName;
+    }
+    setStatus('Publishing update…');
+    const f=await ghGet('updates.json');           // re-read to get freshest sha
+    let current=[];let sha;
+    if(f){current=JSON.parse(b64DecodeText(f.content));sha=f.sha}
+    current.unshift(entry);
+    await ghPut('updates.json',b64EncodeText(JSON.stringify(current,null,2)),`Add update: ${title}`,sha);
+    updates=current;updatesSha=null;
+    renderList();clearForm();
+    setStatus('Published! Your site will show it in about a minute (GitHub Pages rebuild).','ok');
+  }catch(e){setStatus(e.message,'err')}
+  btn.disabled=false;
+}
+
+/* ---------- delete ---------- */
+async function removeUpdate(i){
+  if(!confirm(`Delete "${updates[i].title}" from the website?`))return;
+  try{
+    setStatus('Deleting…');
+    const f=await ghGet('updates.json');
+    let current=JSON.parse(b64DecodeText(f.content));
+    current.splice(i,1);
+    await ghPut('updates.json',b64EncodeText(JSON.stringify(current,null,2)),`Remove update`,f.sha);
+    updates=current;renderList();
+    setStatus('Deleted. (The picture file, if any, is kept in the repo.)','ok');
+  }catch(e){setStatus(e.message,'err')}
+}
+
+/* ---------- UI ---------- */
+function esc(s){const d=document.createElement('div');d.textContent=s??'';return d.innerHTML}
+function renderList(){
+  const el=document.getElementById('list');
+  if(!updates.length){el.innerHTML='<p class="hint">No updates published yet.</p>';return}
+  el.innerHTML=updates.map((u,i)=>`
+    <div class="news-item">
+      ${u.image?`<img src="https://raw.githubusercontent.com/${owner}/${repo}/HEAD/${esc(u.image)}" alt="">`:''}
+      <div class="meta">
+        <div class="d">${esc(u.date)}</div>
+        <div class="t">${esc(u.title)}</div>
+        <div class="x">${esc(u.text)}</div>
+      </div>
+      <button class="btn danger" onclick="removeUpdate(${i})">Delete</button>
+    </div>`).join('');
+}
+function clearForm(){
+  document.getElementById('uTitle').value='';
+  document.getElementById('uText').value='';
+  document.getElementById('uImg').value='';
+  document.getElementById('preview').style.display='none';
+  imgBlob=null;imgName='';
+  document.getElementById('dlImgBtn').disabled=true;
+}
+function setStatus(msg,cls){const s=document.getElementById('status');s.textContent=msg;s.className=cls||'';return s}
+
+/* ---------- manual fallback ---------- */
+function manualJSON(){
+  const date=document.getElementById('uDate').value,
+        title=document.getElementById('uTitle').value.trim(),
+        text=document.getElementById('uText').value.trim();
+  if(!date||!title)return setStatus('Date and title are required.','err');
+  const entry={date,title,text};
+  if(imgBlob)entry.image=imgName;
+  const merged=[entry,...updates];
+  const out=document.getElementById('manualOut');
+  out.style.display='block';
+  out.textContent=JSON.stringify(merged,null,2);
+  setStatus('JSON generated below — paste it into updates.json in your repo.','ok');
+}
+function downloadImage(){
+  if(!imgBlob)return;
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(imgBlob);
+  a.download=imgName.split('/').pop();
+  a.click();
+  setStatus(`Picture downloaded as "${imgName.split('/').pop()}" — upload it to the images/ folder of your repo.`,'ok');
+}
+</script>
+</body>
+</html>
